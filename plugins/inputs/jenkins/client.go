@@ -125,7 +125,8 @@ func createGetRequest(url string, username, password string, sessionCookie *http
 	}
 	if sessionCookie != nil {
 		req.AddCookie(sessionCookie)
-	} else if username != "" && password != "" {
+	}
+	if username != "" && password != "" {
 		req.SetBasicAuth(username, password)
 	}
 	req.Header.Add("Accept", "application/json")
